@@ -71,7 +71,7 @@ let bodyTrans = 'автоматич коробка передач'
 car[titleTrans] = bodyTrans
 console.log(car)*/
 
-let array = ['apple', 'orange', 'banana']
+//let array = ['apple', 'orange', 'banana']
 //array.push('kiwi')
 
 //array.unshift('papaya', 'Mango')
@@ -117,7 +117,7 @@ let arr =[1,3,5,10,15]
 });
 for (const key in arr) {
     console.log(arr[key])
-  }*/
+  }
 
 for (const key of arr) {
   console.log(key)
@@ -141,6 +141,26 @@ function test() {
   console.log(arguments.shift())
 }
 
-test(1,2,3,4)
+test(1,2,3,4)*/
+
+let week = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресение']
+var date = new Date();
+
+let html;
+
+for (let index = 0; index < week.length; index++) {
+  let html = week[index]
+  if(week[index]==='суббота' || week[index]==='воскресение'){
+    html = html.italics() }
+  if (index===(date.getDay()-1)) {html = html.bold()}
+
+
+const div = document.createElement('div');
+div.innerHTML = html;
+document.body.appendChild(div);
+
+  }
+
+
 
 
