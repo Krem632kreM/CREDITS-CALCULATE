@@ -282,14 +282,15 @@ function getLocalTime_2digit(d) {
 function getLocalTime(d) {
   let hoursWord = function (hours) {
     if (hours===1||hours===21) return "час"
-    else if (hours>=2&&hours<5&&hours>=12&&hours<15&&hours>=22&&hours<24) return "часа"
+    else if ((hours%10===2||hours%10===3||hours%10===4)&&hours!==12&&hours!==13&&hours!==14) return "часа"
+    else if (hours===1&&hours!==12&&hours!==13&&hours!==14) return "часов" 
     else return "часов" 
   }
 
   let minutesWord = function (minutes) {
     if (minutes%10===1&&minutes!==11) return "минута"
-    else if (minutes%10===2||minutes%10===3||minutes%10===4) return "минуты"
-    else if(minutes===11) return "минут" 
+    else if ((minutes%10===2||minutes%10===3||minutes%10===4)&&minutes!==12&&minutes!==13&&minutes!==14) return "минуты"
+    else if(minutes===11&&minutes!==12&&minutes!==13&&minutes!==14) return "минут" 
     else return "минут" 
   }
 
