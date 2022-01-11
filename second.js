@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function(){
+'use strict';
 /*let lang = prompt("ru or en?")
 let ru = ['понедельник'], en=['monday'];
 
@@ -250,7 +252,7 @@ console.log(computedStyleMainHead.backgroundOrigin);
 console.log(computedStyleMainHead);*/
 
 
-
+/*
 let func = function () {
   let date = new Date()
 let days = [
@@ -317,15 +319,118 @@ const div = document.createElement('div');
 document.body.innerHTML = str;
 }
 setInterval(func,1000);
+*/
+
+/*
+const collections = document.querySelectorAll('.collections'), elems = document.querySelectorAll('.elem')
+
+console.log(collections, elems)
+
+elems[3].remove()
+
+collections[1].append(elems[3])//вставитьв конец родителя//перемещает
+
+collections[1].prepend(elems[5])//вставляет елемн в начало родителя
+
+collections[0].before(collection[1])//берёт передаваемый эл-нт вставляет перед тем элементом который указали
+
+elems[4].after(elems[0])//0 вставит после 4, перместит 0 после 4ого*/
+
+/*'use strict'
+
+const books = document.querySelector('.books')
+const book = document.querySelectorAll('.book')
+
+console.log(books)
+console.log(book)
+books.prepend(book[1])
+//4 поставить после 0
+book[0].after(book[4]) 
+// 2 поставить после 5
+book[5].after(book[2]) 
+const nameBook_3 = book[4].getElementsByTagName('a')[0]
+nameBook_3.innerText = 'Книга 3. this и Прототипы Объектов'
+console.log(nameBook_3.innerText)
+
+const adv = document.querySelector('.adv')
+adv.remove();
+
+const pointOfTheSecondBook = book[0].getElementsByTagName('ul')[0].getElementsByTagName('li')
+//6 поставить после 3
+pointOfTheSecondBook[3].after(pointOfTheSecondBook[6])
+//8 поставить после 4
+pointOfTheSecondBook[4].after(pointOfTheSecondBook[8])
+pointOfTheSecondBook[9].after(pointOfTheSecondBook[2])
+
+const pointOfTheFifthBook = book[5].getElementsByTagName('ul')[0].getElementsByTagName('li')
+
+pointOfTheFifthBook[1].after(pointOfTheFifthBook[9])
+pointOfTheFifthBook[5].after(pointOfTheFifthBook[3])
+pointOfTheFifthBook[8].after(pointOfTheFifthBook[6])
 
 
+const pointOfTheSixthBook = book[2].getElementsByTagName('ul')[0].getElementsByTagName('li')
+let newPointOfTheSixthBook = document.createElement('li')
+newPointOfTheSixthBook.innerHTML = 'Глава 8: За пределами ES6'
+pointOfTheSixthBook[8].after(newPointOfTheSixthBook)
+console.log(pointOfTheSixthBook[8])
+console.log(newPointOfTheSixthBook)
+
+document.body.style.backgroundImage = "url('./image/you-dont-know-js.jpg')";
 
 
+//elems[2].replaceWith(elem[3]) 2ой элемент был убран*/
 
 
+/*btn.onclick = function() {
+  console.log('text')
+}*/
+
+/*btn.addEventListener('click', function(){
+  console.log('щёлк')
+})
+btn.addEventListener('click', function(){
+  console.log('пёлк')
+})
+btn.addEventListener('click', function(){
+  console.log('сёлк')
+})*/
+
+/*
+  console.log('стр загузилась')
 
 
+let eventFunc = function(event){
+  console.log(event.type)
+  console.log(event.target.value)
+}
+//document.querySelector('.target-amount').addEventListener('input', eventFunc);
+//document.querySelector('.target-amount').addEventListener('change', eventFunc);
+//btn.addEventListener('mousemove', eventFunc)
 
+//document.querySelector('.target-amount').addEventListener('focus', eventFunc);
+//document.querySelector('.target-amount').addEventListener('blur', eventFunc);
 
+document.querySelector('.period-select').addEventListener('change', eventFunc);
 
+window.onbeforeunload = function(){
+  return "вы уверены что хотите уйти со страницы?";
+};*/
 
+let clickElem = null;
+
+function greenHundler(event){
+
+  if(clickElem){
+    clickElem.classList.remove('green')
+  }
+
+  clickElem  = event.currentTarget
+  clickElem.classList.add('green')
+}
+document.getElementById('start').addEventListener('click', greenHundler)
+document.getElementById('start1').addEventListener('click', greenHundler)
+document.querySelector('body').addEventListener('click', greenHundler)
+
+console.log(document.querySelector('.expenses-title'))
+});
