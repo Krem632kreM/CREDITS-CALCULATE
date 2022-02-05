@@ -16,6 +16,10 @@ let appData = {
   moneyDeposit: 0,
   mission: 50000,
   period: 3,
+  budget: 0,
+  budgetDay: 0,
+  budgetMonth: 0,
+  expensesMonth: 0,
   start: function () {
     this.budget = salaryAmount.value;
     this.getExpenses();
@@ -59,7 +63,6 @@ let appData = {
       buttonPlus[1].style.display = 'none'
     }
   },
-
   addIncomeBlock: function () {
     let cloneIncomeItem = incomeItems[0].cloneNode(true)
     cloneIncomeItem.getElementsByTagName('input')[0].value = ''
@@ -72,15 +75,10 @@ let appData = {
 
 
   },
-
   rangeDigit: function () {
     const titlePeriodAmount = document.querySelector('.period-amount')
     titlePeriodAmount.innerHTML = range.value
   },
-  budget: 0,
-  budgetDay: 0,
-  budgetMonth: 0,
-  expensesMonth: 0,
   getExpensesMonth: function () {
     let sum = 0;
     for (const key in this.expenses) {
@@ -111,7 +109,6 @@ let appData = {
     this.budgetMonth = (this.budget - this.getExpensesMonth())
     this.budgetDay = Math.floor(this.budgetMonth / 30);
   },
-
   getTargetMonth: function () {
     if (Math.ceil(this.mission / this.budgetMonth) <= 0) {
       return "Цель не будет достигнута"
@@ -119,7 +116,6 @@ let appData = {
       return "Цель будет достигнута за " + Math.ceil(this.mission / this.budgetMonth) + " месяца(-ев)"
     }
   },
-
   getStatusIncome: function () {
     if (this.budgetDay >= 1200) {
       return ("У вас высокий уровень дохода")
